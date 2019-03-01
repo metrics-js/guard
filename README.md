@@ -43,15 +43,15 @@ for (let i = 0; i < 10000; i++) {
 
 ## Description
 
-Metrics in general should be created and curated with care to make sure one
-collect metrics which give value without causing system drainage. It is very
-easy to create excessive amounts of metrics from an application and its even
-cases where the excess of metrics can bring both and application and the
-metric system to a halt.
+Metrics, in general, should be created and curated with care to make sure one
+collects metrics which give value without causing system drainage. It is
+effortless to produce excessive amounts of metrics from an application, which
+in a worst-case scenario can bring both the application and the metric system
+to a halt.
 
-As an example; a very common misstake when creating metrics in a web application
-is to count the amount of requests to a route which has a users user ID in it
-and pass the URL on as a label to the metric.
+As an example; a widespread mistake when creating metrics in a web application
+is to count the number of requests to a route which contains a user ID and
+pass the URL on as a label to the metric.
 
 ```js
 const client = new Client();
@@ -72,20 +72,20 @@ The above will in some metric systems generate a new permutation of the metric
 for each unique URL and since the URL contain users IDs one can potentially
 generate a massive amount of permutations.
 
-In other words; the above is something one should avoid. But its a very common
-misstake to do.
+In other words; the above is something one should avoid. But it's a common
+mistake to do.
 
-This module is to guard against excessive metric creation and permutation creation
-in a metric stream. If a misstake like above is done, this module will guard
+This module guards against excessive metric and permutation creation in a metric
+stream. If a mistake, such as the one above, is made, this module will guard
 against a bad metric filling up the metric stream.
 
 ### Permutation threshold
 
 Labels on a metric is the normal culprit to excessive metric permutation creation,
-since a labels are normally a permutation of the metric.
+since labels are normally a permutation of the metric.
 
 Due to this, the guard monitors the amount of permutations of a metric and if a
-threshold of permutations is exceeded the guard will dropp the metric from the
+threshold of permutations is exceeded the guard will drop the metric from the
 metric stream and emit a `drop` event.
 
 Prior to a metric exceeding the threshold, the guard will start emitting
@@ -97,7 +97,7 @@ action.
 
 ### Metrics threshold
 
-It also might be that an application are just reporting too many different metrics.
+It also might be that an application is just reporting too many different metrics.
 
 This guard will also monitor the amount of unique metrics and will start emitting
 a `warn` event when a threshold of allowed unique metrics is exceeded.
@@ -119,7 +119,7 @@ An Object containing misc configuration. The following values can be provided:
 
   * **permutationThreshold** - `Number` - Threshold of how many permutations of a metrics which should be allowed. Default: 1000.
   * **metricsThreshold** - `Number` - Threshold of how many unique metrics which should be allowed. Default: 60.
-  * **enabled** - `Boolean` - If the quard should be enabled or not. Default: `true`.
+  * **enabled** - `Boolean` - If the guard should be enabled or not. Default: `true`.
   * **id** - `String` - Give the instanse a unique identifier. Default: `hash`
 
 The Guard instance inherit from Transform Stream. Due to this the instance also
