@@ -31,14 +31,14 @@ const iterations = 10;
 const max = 100000;
 
 const run = benchmark([
-    function NonGuardedMetricStream (done) {
-        const guard = new Guard({enabled: false, permutationThreshold: (max + 1)});
+    function NonGuardedMetricStream(done) {
+        const guard = new Guard({ enabled: false, permutationThreshold: (max + 1) });
         const dest = destObjectStream(done);
         const src = srcObjectStream();
 
         src.pipe(guard).pipe(dest);
 
-        for (var i = 0; i < max; i++) {
+        for (let i = 0; i < max; i++) {
             const metric = new Metric({ name: 'foo', description: 'foo', labels: [{ name: 'foo', value: i }] });
             src.push(metric);
         }
@@ -48,14 +48,14 @@ const run = benchmark([
         });
     },
 
-    function GuardedMetricStreamNoDrop (done) {
-        const guard = new Guard({enabled: true, permutationThreshold: (max * 2)});
+    function GuardedMetricStreamNoDrop(done) {
+        const guard = new Guard({ enabled: true, permutationThreshold: (max * 2) });
         const dest = destObjectStream(done);
         const src = srcObjectStream();
 
         src.pipe(guard).pipe(dest);
 
-        for (var i = 0; i < max; i++) {
+        for (let i = 0; i < max; i++) {
             const metric = new Metric({ name: 'foo', description: 'foo', labels: [{ name: 'foo', value: i }] });
             src.push(metric);
         }
@@ -65,14 +65,14 @@ const run = benchmark([
         });
     },
 
-    function GuardedMetricStreamDropping (done) {
-        const guard = new Guard({enabled: true, permutationThreshold: 10000});
+    function GuardedMetricStreamDropping(done) {
+        const guard = new Guard({ enabled: true, permutationThreshold: 10000 });
         const dest = destObjectStream(done);
         const src = srcObjectStream();
 
         src.pipe(guard).pipe(dest);
 
-        for (var i = 0; i < max; i++) {
+        for (let i = 0; i < max; i++) {
             const metric = new Metric({ name: 'foo', description: 'foo', labels: [{ name: 'foo', value: i }] });
             src.push(metric);
         }
@@ -81,8 +81,8 @@ const run = benchmark([
             src.push(null);
         });
     },
-], iterations)
+], iterations);
 
 // run them two times
-console.log(`Push ${max*iterations} metric objects through metric stream:`);
+console.log(`Push ${max * iterations} metric objects through metric stream:`);
 run(run);

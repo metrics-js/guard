@@ -57,6 +57,14 @@ tap.test('Guard() - "permutationThreshold" argument is not valid - should throw'
     t.end();
 });
 
+tap.test('Guard() - "enabled" argument is not valid - should throw', (t) => {
+    t.plan(1);
+    t.throws(() => {
+        const guard = new MetricsGuard({ enabled: 'foo' }); // eslint-disable-line no-unused-vars
+    }, /Provided value to argument "enabled" must be a Boolean/);
+    t.end();
+});
+
 tap.test('Guard() - "permutationThreshold" is at 6 - one metric exceed this - should drop the metric from the stream when exceeding the threshold', (t) => {
     const guard = new MetricsGuard({
         permutationThreshold: 6, // warns at 4
