@@ -2,6 +2,8 @@
 
 Module to guard against excessive metric permutation creation in a metric stream.
 
+[![Build Status](http://img.shields.io/travis/metrics-js/guard/master.svg?style=flat-square)](https://travis-ci.org/metrics-js/guard)
+
 ## Installation
 
 ```bash
