@@ -1,0 +1,44 @@
+{
+  "name": "@metrics/guard",
+  "version": "1.0.0",
+  "description": "Module to guard against excessive metric permutation creation in a metric stream",
+  "main": "lib/guard.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "bench": "node benchmark/benchmark.js",
+    "test": "tap test/*.js",
+    "test:coverage": "tap test/*.js --cov",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "author": "Trygve Lie <post@trygve-lie.com>",
+  "license": "MIT",
+  "keywords": [
+    "server-statistics",
+    "server-stats",
+    "statistics",
+    "metrics",
+    "monitoring",
+    "guard"
+  ],
+  "dependencies": {
+    "readable-stream": "^3.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "@metrics/metric": "^2.3.0",
+    "fastbench": "^1.0.1",
+    "prettier": "^1.11.1",
+    "tap": "^12.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metrics-js/client.git"
+  }
+}
