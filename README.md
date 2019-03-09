@@ -150,7 +150,7 @@ Returns an `Array`.
 
 ### .getLabels(name)
 
-Get a list off all the different label values on a metrics which has been registered
+Get a list off all the different labels on a metrics which has been registered
 by the guard.
 
 ```js
@@ -162,7 +162,7 @@ This method take the following arguments:
 
  * **name** - The name of the metric to retrieve labels from. Required.
 
-Returns an `Array`.
+Returns an `Array` with label `Objects`.
 
 ### .reset()
 
