@@ -32,7 +32,8 @@
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "@metrics/metric": "^2.3.0",
+    "@metrics/client": "2.4.1",
+    "@metrics/metric": "2.3.1",
     "fastbench": "^1.0.1",
     "prettier": "^1.11.1",
     "tap": "^12.6.0"
