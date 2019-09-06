@@ -103,9 +103,9 @@ tap.test('Guard() - "permutationThreshold" is at 6 - one metric exceed this - sh
         // only 4 "foo" metrics plus the "bar" and "xyz" metrics got
         // through the stream
         t.equal(arr.length, 6);
-        t.equal(arr.filter(obj => obj.name === 'foo').length, 4);
-        t.equal(arr.filter(obj => obj.name === 'bar').length, 1);
-        t.equal(arr.filter(obj => obj.name === 'xyz').length, 1);
+        t.equal(arr.filter((obj) => obj.name === 'foo').length, 4);
+        t.equal(arr.filter((obj) => obj.name === 'bar').length, 1);
+        t.equal(arr.filter((obj) => obj.name === 'xyz').length, 1);
         t.end();
     });
 
@@ -200,7 +200,7 @@ tap.test('.getMetrics() - set metrics - call method - should return an Array wit
     const dest = destObjectStream((arr) => {
         const m = guard.getMetrics();
         t.equal(m.length, 5);
-        t.equal(m.filter(name => name === 'foo').length, 1);
+        t.equal(m.filter((name) => name === 'foo').length, 1);
 
         t.equal(arr.length, 7);
         t.end();
@@ -231,10 +231,10 @@ tap.test('.getLabels() - set metrics - call method - should return an Array with
     const dest = destObjectStream((arr) => {
         const labels = guard.getLabels('foo');
         t.equal(labels.length, 4);
-        t.equal(labels.filter(label => label.name === 'foo' && label.value === '1').length, 1);
-        t.equal(labels.filter(label => label.name === 'foo' && label.value === '2').length, 1);
-        t.equal(labels.filter(label => label.name === 'foo' && label.value === '3').length, 1);
-        t.equal(labels.filter(label => label.name === 'bar' && label.value === '2').length, 1);
+        t.equal(labels.filter((label) => label.name === 'foo' && label.value === '1').length, 1);
+        t.equal(labels.filter((label) => label.name === 'foo' && label.value === '2').length, 1);
+        t.equal(labels.filter((label) => label.name === 'foo' && label.value === '3').length, 1);
+        t.equal(labels.filter((label) => label.name === 'bar' && label.value === '2').length, 1);
         t.equal(arr.length, 8);
         t.end();
     });
