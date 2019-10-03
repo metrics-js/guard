@@ -1,6 +1,6 @@
 {
   "name": "@metrics/guard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Module to guard against excessive metric permutation creation in a metric stream",
   "main": "lib/guard.js",
   "files": [
