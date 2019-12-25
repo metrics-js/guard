@@ -35,7 +35,7 @@
     "@metrics/client": "2.5.0",
     "@metrics/metric": "2.3.1",
     "fastbench": "^1.0.1",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "tap": "^14.10.5"
   },
   "repository": {
