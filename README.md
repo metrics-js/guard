@@ -2,10 +2,10 @@
 
 Module to guard against excessive metric permutation creation in a metric stream.
 
-[![Dependencies](https://img.shields.io/david/metrics-js/guard.svg?style=flat-square)](https://david-dm.org/metrics-js/guard)
-[![Build Status](http://img.shields.io/travis/metrics-js/guard/master.svg?style=flat-square)](https://travis-ci.org/metrics-js/guard)
-[![Greenkeeper badge](https://badges.greenkeeper.io/metrics-js/guard.svg?style=flat-square)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/metrics-js/guard/badge.svg?targetFile=package.json&style=flat-square)](https://snyk.io/test/github/metrics-js/guard?targetFile=package.json)
+[![Dependencies](https://img.shields.io/david/metrics-js/guard.svg)](https://david-dm.org/metrics-js/guard)
+[![GitHub Actions status](https://github.com/metrics-js/guard/workflows/Run%20Lint%20and%20Tests/badge.svg)](https://github.com/metrics-js/guard/actions?query=workflow%3A%22Run+Lint+and+Tests%22)
+[![Known Vulnerabilities](https://snyk.io/test/github/metrics-js/guard/badge.svg?targetFile=package.json)](https://snyk.io/test/github/metrics-js/guard?targetFile=package.json)
+
 
 ## Installation
 
