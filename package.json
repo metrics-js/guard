@@ -24,7 +24,7 @@
     "guard"
   ],
   "dependencies": {
-    "readable-stream": "^3.4.0"
+    "readable-stream": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "6.8.0",
