@@ -36,7 +36,7 @@
     "@metrics/metric": "2.3.1",
     "fastbench": "1.0.1",
     "prettier": "1.19.1",
-    "tap": "14.10.6"
+    "tap": "14.11.0"
   },
   "repository": {
     "type": "git",
