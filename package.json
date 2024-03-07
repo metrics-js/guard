@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@metrics/client": "2.5.2",
-    "@metrics/metric": "2.3.2",
+    "@metrics/metric": "2.3.3",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "11.1.0",
     "@semantic-release/git": "10.0.1",
