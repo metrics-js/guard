@@ -5,7 +5,7 @@
 const benchmark = require('fastbench');
 const stream = require('readable-stream');
 const Metric = require('@metrics/metric');
-const Guard = require('../');
+const Guard = require('..');
 
 const srcObjectStream = () => {
     return new stream.Readable({
