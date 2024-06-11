@@ -43,7 +43,7 @@
 		"fastbench": "1.0.1",
 		"prettier": "3.3.0",
 		"semantic-release": "23.0.2",
-		"tap": "18.7.1"
+		"tap": "19.2.5"
 	},
 	"repository": {
 		"type": "git",
