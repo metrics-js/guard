@@ -426,7 +426,32 @@ tap.test(
 	},
 );
 
-tap.test("Guard() - do not add metric where label name / values are null and emit warning", (t) => {
+tap.test("Guard() - add metric when a label value is undefined or null", (t) => {
+	const guard = new Guard();
+	const metric = new Metric({
+		name: "foo",
+		description: "foo",
+		labels: [
+			{ name: "someLabel", value: undefined },
+			{ name: "someOtherLabel", value: null },
+		],
+	});
+	const metrics = [metric];
+
+	const src = srcObjectStream(metrics);
+	const dest = destObjectStream((arr) => {
+		t.equal(arr.length, 1);
+		t.end();
+	});
+
+	src.pipe(guard).pipe(dest);
+
+	setImmediate(() => {
+		dest.end();
+	});
+});
+
+tap.test("Guard() - do not add metric when label name / values are undefined and emit warning", (t) => {
 	const guard = new Guard();
 	const metrics = [new Metric({ name: "foo", description: "foo", labels: [{ name: undefined, value: null }] })];
 
