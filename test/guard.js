@@ -425,3 +425,24 @@ tap.test(
 		});
 	},
 );
+
+tap.test("Guard() - do not add metric where label name / values are null and emit warning", (t) => {
+	const guard = new Guard();
+	const metrics = [new Metric({ name: "foo", description: "foo", labels: [{ name: undefined, value: null }] })];
+
+	const src = srcObjectStream(metrics);
+	const dest = destObjectStream((arr) => {
+		t.equal(arr.length, 0);
+		t.end();
+	});
+
+	guard.on("warn", (type, message) => {
+		t.equal(type, "labels");
+		t.match(message, /undefined/);
+	});
+	src.pipe(guard).pipe(dest);
+
+	setImmediate(() => {
+		dest.end();
+	});
+});
