@@ -425,3 +425,50 @@ tap.test(
 		});
 	},
 );
+
+tap.test("Guard() - do not add metric when a label value is undefined and emit warning", (t) => {
+	const guard = new Guard();
+	const metric = new Metric({
+		name: "foo",
+		description: "foo",
+		labels: [{ name: "someLabel", value: undefined }],
+	});
+	const metrics = [metric];
+
+	const src = srcObjectStream(metrics);
+	const dest = destObjectStream((arr) => {
+		t.equal(arr.length, 0);
+		t.end();
+	});
+
+	guard.on("warn", (type, message) => {
+		t.equal(type, "labels");
+		t.match(message, /undefined/);
+	});
+	src.pipe(guard).pipe(dest);
+
+	setImmediate(() => {
+		dest.end();
+	});
+});
+
+tap.test("Guard() - do not add metric when label name / values are undefined and emit warning", (t) => {
+	const guard = new Guard();
+	const metrics = [new Metric({ name: "foo", description: "foo", labels: [{ name: undefined, value: null }] })];
+
+	const src = srcObjectStream(metrics);
+	const dest = destObjectStream((arr) => {
+		t.equal(arr.length, 0);
+		t.end();
+	});
+
+	guard.on("warn", (type, message) => {
+		t.equal(type, "labels");
+		t.match(message, /undefined/);
+	});
+	src.pipe(guard).pipe(dest);
+
+	setImmediate(() => {
+		dest.end();
+	});
+});
