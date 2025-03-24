@@ -48,6 +48,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/metrics-js/client.git"
+    "url": "https://github.com/metrics-js/guard.git"
   }
 }
