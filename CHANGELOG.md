@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/metrics-js/guard/compare/v1.0.2...v1.0.3) (2025-03-24)
+
+
+### Bug Fixes
+
+* emit warn when labels and values are out of sync ([35cbdbf](https://github.com/metrics-js/guard/commit/35cbdbf1ae0b7d14761b2e52877aab18fa8cdffe))
+
 # Changelog
 
 Notable changes to this project.
