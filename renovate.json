@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>metrics-js/renovate-presets:sub-level-module"
+    "github>metrics-js/renovate-presets:top-level-module"
   ]
 }
